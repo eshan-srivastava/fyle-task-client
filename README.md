@@ -8,7 +8,7 @@
 4. Topics and description are displayed when they are not null.
 5. Users have the option to change **how many repositories are displayed on 1 page** and the navigation auto-adjusts with it.
 
-*Since this is for non-production purposes, API has been hardcoded for localhost deployment*
+*Since this is for non-production purposes, API has been hardcoded for localhost deployment, data may take time to load because server is hosted on render and after 15mins of inactivity it spins down. It takes time to recover when a request is sent to a spin down server*
 
 #### Steps to run this
 1. Run index.html in browser or using any liveserver platform
