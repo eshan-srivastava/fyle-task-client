@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fyle Repo Viewer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container imgpulse" id="user-container">
+        <img src="" alt="" id="userImg">
+        <div>
+            <h2 id="username"></h2>
+            <p id="bio"></p>
+            <br>
+            <span id="location"></span>
+            <br>
+            <a id="githuburl"></a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="user-search">
+            <input type="text" id="searchInput" placeholder="Enter your username">
+            <button onclick="userSearch()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                </svg>
+            </button>
+            <span class="error-message" id="searchError"></span>
+        </div>
+        <div id="perpage-container">
+            <p>Display repos per page: </p>
+            <select name="perpage" id="perPage"></select>
+        </div>
+    </div>
+    <div id="main-container">
+        <div id="repoloader"></div>
+        <div id='reposContainer'>
+        </div>
+        <div id="pages">
+            <div>
+                <p>Page no:</p>
+                <select name="page-picker" id="pagePicker"></select>
+            </div>
+            <button id="prev" disabled>Previous</button>
+            <button id="next">Newer</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
