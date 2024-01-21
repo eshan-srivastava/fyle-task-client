@@ -6,6 +6,7 @@ let prevButton;
 let nextButton;
 let selectedpageNo;
 
+const server = "https://fylegitview.onrender.com"
 const perPageDropdown = document.getElementById('perPage');
 
 // Add options for 10, 20, 30, ..., 100
@@ -36,7 +37,7 @@ function userSearch() {
 }
 
 function fetchProfile(username) {
-    fetch(`http://localhost:3000/user?username=${username}`)
+    fetch(`${server}/user?username=${username}`)
         .then(response => response.json())
         .then(extracteduserData => {
             displayUser(extracteduserData);
@@ -51,7 +52,7 @@ function fetchRepos(userid, selectedpageNo) {
     repoloader.style.display = 'block';
 
     let selectedperPage = perpage || 10;
-    fetch(`http://localhost:3000/repos?user=${userid}&page=${selectedpageNo}&perpage=${selectedperPage}`)
+    fetch(`${server}/repos?user=${userid}&page=${selectedpageNo}&perpage=${selectedperPage}`)
         .then(response => response.json())
         .then(data => {
             // console.log(data);
@@ -189,7 +190,7 @@ document.getElementById('prev').addEventListener('click', () => {
     console.log(`prev button called: ${prevPageUrl}`);
     const page = new URL(prevPageUrl).searchParams.get('page');
     const perpage = new URL(prevPageUrl).searchParams.get('per_page');
-    fetch(`http://localhost:3000/repos?user=${userid}&page=${page}&perpage=${perpage}`)
+    fetch(`${server}/repos?user=${userid}&page=${page}&perpage=${perpage}`)
     // fetch(prevPageUrl)
         .then(response => response.json())
         .then(data => {
@@ -209,7 +210,7 @@ document.getElementById('next').addEventListener('click', () => {
     const page = new URL(nextPageUrl).searchParams.get('page');
     const perpage = new URL(nextPageUrl).searchParams.get('per_page');
     console.log(`next button called: ${nextPageUrl}`);
-    fetch(`http://localhost:3000/repos?user=${userid}&page=${page}&perpage=${perpage}`)
+    fetch(`${server}/repos?user=${userid}&page=${page}&perpage=${perpage}`)
         .then(response => response.json())
         .then(data => {
             // Update page options and render repos
